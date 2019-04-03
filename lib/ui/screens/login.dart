@@ -11,7 +11,7 @@ class LoginScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text('Recipes', textAlign: TextAlign.center),
+              Text('Recipes', style: Theme.of(context).textTheme.headline, textAlign: TextAlign.center),
               //space between 'Recipes' and the button:
               SizedBox(height: 50.0),
               MaterialButton(

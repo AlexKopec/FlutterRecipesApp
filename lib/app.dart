@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_recipes_app/ui/screens/login.dart';
+import 'package:flutter_recipes_app/ui/theme.dart';
 
 
 class RecipesApp extends StatelessWidget {
@@ -9,6 +11,7 @@ class RecipesApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
+      theme: buildTheme(),
       initialRoute: '/login',
       routes: {
         '/': (context) => LoginScreen(),
