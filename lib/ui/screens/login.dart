@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_recipes_app/ui/widgets/google_sign_in_button.dart';
+
 class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -14,11 +16,7 @@ class LoginScreen extends StatelessWidget {
               Text('Recipes', style: Theme.of(context).textTheme.headline, textAlign: TextAlign.center),
               //space between 'Recipes' and the button:
               SizedBox(height: 50.0),
-              MaterialButton(
-                color: Colors.white,
-                child: Text("Sign in with Google"),
-                onPressed: () => print("Button pressed."),
-              )
+              GoogleSignInButton(onPressed: ()=>print("Button pressed."),),
             ],
           ),
         ),
