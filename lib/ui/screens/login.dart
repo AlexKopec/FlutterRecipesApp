@@ -16,7 +16,7 @@ class LoginScreen extends StatelessWidget {
               Text('Recipes', style: Theme.of(context).textTheme.headline, textAlign: TextAlign.center),
               //space between 'Recipes' and the button:
               SizedBox(height: 50.0),
-              GoogleSignInButton(onPressed: ()=>print("Button pressed."),),
+              GoogleSignInButton(onPressed: ()=>Navigator.of(context).pushReplacementNamed('/')),
             ],
           ),
         ),
