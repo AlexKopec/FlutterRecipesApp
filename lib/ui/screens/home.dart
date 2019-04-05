@@ -1,8 +1,46 @@
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
+import 'package:flutter_recipes_app/model/Recipe.dart';
+import 'package:flutter_recipes_app/utils/store.dart';
+
+class HomeScreen extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => new HomeScreenState();
+}
+
+class HomeScreenState extends State<HomeScreen> {
+  List<Recipe> recipes = getRecipes();
+  List<String> userFavs = getFavoritesIDs();
+
+  void _handleFavoritesListChanges(String recipeID) {
+    setState(() {
+      if (userFavs.contains(recipeID)) {
+        userFavs.remove(recipeID);
+      } else {
+        userFavs.add(recipeID);
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    Column _buildRecipes(List<Recipe> recipeList) {
+      return Column(
+        children: <Widget>[
+          Expanded(
+            child: ListView.builder(
+              itemCount: recipeList.length,
+              itemBuilder: (BuildContext context, int index) {
+                return ListTile(
+                  title: Text(recipeList[index].name),
+                );
+              }
+            ),
+          )
+        ],
+      );
+    }
+
     double _iconSize = 20.0;
 
     return DefaultTabController(
@@ -27,9 +65,15 @@ class HomeScreen extends StatelessWidget {
         body: Padding(
           padding: EdgeInsets.all(5.0),
           child: TabBarView(children: [
-            Center(child: Icon(Icons.restaurant)),
-            Center(child: Icon(Icons.local_drink)),
-            Center(child: Icon(Icons.favorite)),
+            _buildRecipes(recipes
+              .where((recipe) => recipe.type == RecipeType.food)
+              .toList()),
+            _buildRecipes(recipes
+                .where((recipe) => recipe.type == RecipeType.drink)
+                .toList()),
+            _buildRecipes(recipes
+                .where((recipe) => userFavs.contains(recipe.id))
+                .toList()),
             Center(child: Icon(Icons.settings)),
           ]),
         ),
