@@ -22,6 +22,7 @@ class RecipeCard extends StatelessWidget {
           // Conditional expression:
           // show "favorite" icon or "favorite border" icon depending on widget.inFavorites:
           inFavorites == true ? Icons.favorite : Icons.favorite_border,
+          color: Theme.of(context).iconTheme.color,
         ),
         elevation: 2.0,
         fillColor: Colors.white,
@@ -37,7 +38,7 @@ class RecipeCard extends StatelessWidget {
           // We want to align title and description of recipes left:
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text(recipe.name),
+            Text(recipe.name, style: Theme.of(context).textTheme.title),
             SizedBox(height: 5.0),
             Row(
               children: <Widget>[
@@ -45,6 +46,7 @@ class RecipeCard extends StatelessWidget {
                 SizedBox(width: 5.0),
                 Text(
                   recipe.getDurationString,
+                  style: Theme.of(context).textTheme.caption,
                 )
               ],
             ),

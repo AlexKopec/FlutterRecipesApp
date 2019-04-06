@@ -55,7 +55,6 @@ class HomeScreenState extends State<HomeScreen> {
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(50.0),
           child: AppBar(
-            backgroundColor: Colors.white,
             elevation: 2.0,
             bottom: TabBar(
               labelColor: Theme.of(context).indicatorColor,
