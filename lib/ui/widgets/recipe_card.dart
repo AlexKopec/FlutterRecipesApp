@@ -38,10 +38,16 @@ class RecipeCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(recipe.name),
-            SizedBox(height: 10.0),
-            Text(
-              recipe.duration.toString(),
-            )
+            SizedBox(height: 5.0),
+            Row(
+              children: <Widget>[
+                Icon(Icons.timer, size: 20.0),
+                SizedBox(width: 5.0),
+                Text(
+                  recipe.getDurationString,
+                )
+              ],
+            ),
           ],
         ),
       );

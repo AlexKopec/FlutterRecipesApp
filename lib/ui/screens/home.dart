@@ -25,22 +25,25 @@ class HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    Column _buildRecipes(List<Recipe> recipeList) {
-      return Column(
-        children: <Widget>[
-          Expanded(
-            child: ListView.builder(
-              itemCount: recipeList.length,
-              itemBuilder: (BuildContext context, int index) {
-                return RecipeCard(
-                  recipe: recipeList[index],
-                  inFavorites: userFavs.contains(recipeList[index].id),
-                  onFavoriteButtonPressed: _handleFavoritesListChanges,
-                );
-              }
-            ),
-          )
-        ],
+    Padding _buildRecipes(List<Recipe> recipeList) {
+      return Padding(
+        padding: const EdgeInsets.symmetric(vertical: 5.0),
+        child: Column(
+          children: <Widget>[
+            Expanded(
+              child: ListView.builder(
+                itemCount: recipeList.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return RecipeCard(
+                    recipe: recipeList[index],
+                    inFavorites: userFavs.contains(recipeList[index].id),
+                    onFavoriteButtonPressed: _handleFavoritesListChanges,
+                  );
+                }
+              ),
+            )
+          ],
+        ),
       );
     }
 
