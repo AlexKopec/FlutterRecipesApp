@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_recipes_app/model/Recipe.dart';
+import 'package:flutter_recipes_app/ui/screens/recipe_details.dart';
 
 class RecipeCard extends StatelessWidget {
   final Recipe recipe;
@@ -55,8 +56,10 @@ class RecipeCard extends StatelessWidget {
       );
     }
 
+
+
     return GestureDetector(
-      onTap: () => print("Tapped!"),
+      onTap: () => Navigator.pushNamed(context, '/recipeDetail', arguments: recipe),
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
         child: Card(
