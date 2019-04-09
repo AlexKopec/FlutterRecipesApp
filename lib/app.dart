@@ -14,7 +14,6 @@ class RecipesApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: buildTheme(),
-      initialRoute: '/login',
       routes: {
         '/': (context) => HomeScreen(),
         '/login': (context) => LoginScreen(),
