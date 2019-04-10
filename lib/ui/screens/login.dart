@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_recipes_app/state_widget.dart';
 
 import 'package:flutter_recipes_app/ui/widgets/google_sign_in_button.dart';
 
@@ -16,7 +17,7 @@ class LoginScreen extends StatelessWidget {
               Text('Recipes', style: Theme.of(context).textTheme.headline, textAlign: TextAlign.center),
               //space between 'Recipes' and the button:
               SizedBox(height: 50.0),
-              GoogleSignInButton(onPressed: ()=>Navigator.of(context).pushReplacementNamed('/')),
+              GoogleSignInButton(onPressed: () => StateWidget.of(context).signInWithGoogle()),
             ],
           ),
         ),
